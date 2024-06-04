@@ -1,0 +1,44 @@
+.topic-section {
+  background: $light;
+  padding: 50px;
+}
+
+.topic-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.topic {
+  height: 22vw;
+  background: url(../img/square.png);
+  background-size: contain;
+  position: relative;
+  aspect-ratio: 1/1;
+
+  .topic-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: $light;
+    font-size: 22px;
+    i {
+      font-size: 30px;
+    }
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background: rgba($dark, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  &:hover .topic-cover {
+    opacity: 1;
+  }
+}
