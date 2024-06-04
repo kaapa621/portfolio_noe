@@ -1,0 +1,29 @@
+.hero-section {
+  padding-top: 80px;
+}
+
+.hero-main-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-bottom: 80px;
+
+  .hero-titles {
+    position: absolute;
+    left: -80px;
+
+    .hero-title {
+      font-size: 56px;
+    }
+
+    .hero-subtitle {
+      font-size: 25px;
+    }
+  }
+
+  .hero-topics {
+    position: absolute;
+    right: -80px;
+  }
+}
