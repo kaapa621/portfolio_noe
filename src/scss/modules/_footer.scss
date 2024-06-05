@@ -1,0 +1,16 @@
+footer {
+  background: $dark;
+  position: relative;
+  z-index: 2;
+  padding: 140px 0 50px;
+}
+
+.footer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  .name {
+    font-size: 18px;
+  }
+}
