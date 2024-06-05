@@ -1,0 +1,48 @@
+.project-container-whole {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-bottom: 115px;
+}
+
+.project-topics {
+  position: absolute;
+  left: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  i {
+    color: $dark;
+    background: $light;
+    padding: 6px;
+    border-radius: 50px;
+    font-size: 18px;
+  }
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  .project-titles {
+    position: absolute;
+    left: -80px;
+
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  .project-text {
+    position: absolute;
+    max-width: 250px;
+    right: -200px;
+  }
+}
