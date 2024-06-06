@@ -8,12 +8,13 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .topic {
   height: 22vw;
   background: url(../img/square.png);
-  background-size: contain;
+  background-size: cover;
   position: relative;
   aspect-ratio: 1/1;
 
@@ -41,5 +42,20 @@
 
   &:hover .topic-cover {
     opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .topic-section {
+    padding: 40px 10px;
+  }
+
+  .topic-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .topic {
+    height: 80vw;
   }
 }

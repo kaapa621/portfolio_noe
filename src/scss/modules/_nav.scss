@@ -22,13 +22,17 @@
 }
 
 .topics-btn-nav {
-  display: none;
+  display: flex;
 }
 
 .nav-btn {
   .fa-solid {
     color: $light;
   }
+}
+
+.nav-burger {
+  display: none;
 }
 
 .nav-burger-icon {
@@ -96,12 +100,16 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   .topics-btn-nav {
-    display: flex;
+    display: none;
   }
 
   .nav-burger {
-    display: none;
+    display: flex;
+  }
+
+  .nav {
+    padding-left: 0;
   }
 }

@@ -46,3 +46,33 @@
     right: -200px;
   }
 }
+
+@media (max-width: 767px) {
+  .project-container {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .project-titles {
+      position: relative;
+      left: 20px;
+      top: -20px;
+      order: 1;
+    }
+
+    .project-text {
+      position: relative;
+      right: 0;
+      font-size: 14px;
+      order: 2;
+      max-width: 300px;
+    }
+  }
+
+  .project-topics {
+    display: none;
+  }
+
+  .project-container-whole {
+    margin-bottom: 20px;
+  }
+}
