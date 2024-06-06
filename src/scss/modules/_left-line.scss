@@ -5,3 +5,9 @@
   background: $light;
   width: 3px;
 }
+
+@media (max-width: 767px) {
+  .left-line {
+    display: none;
+  }
+}
