@@ -31,7 +31,7 @@
   .project-titles {
     position: absolute;
     left: -80px;
-
+    z-index: 5;
     h2 {
       font-size: 30px;
     }
@@ -45,6 +45,14 @@
     max-width: 250px;
     right: -200px;
   }
+}
+
+.project-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 200px;
+  overflow: hidden;
 }
 
 @media (max-width: 767px) {

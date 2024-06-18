@@ -11,11 +11,23 @@
   gap: 10px;
 }
 
+.topic-3d {
+  background: url(../img/pixelart_3d.png);
+}
+
+.topic-video {
+  background: url(../img/square.png);
+}
+
+.topic-grad {
+  background: url(../img/square.png);
+}
+
 .topic {
   height: 22vw;
-  background: url(../img/square.png);
   background-size: cover;
   position: relative;
+  filter: saturate(0);
   aspect-ratio: 1/1;
 
   .topic-cover {
@@ -43,6 +55,10 @@
   &:hover .topic-cover {
     opacity: 1;
   }
+}
+.topic:hover {
+  filter: saturate(1);
+  transition: filter 0.3s;
 }
 
 @media (max-width: 767px) {
