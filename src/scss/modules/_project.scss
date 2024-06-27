@@ -55,6 +55,14 @@
   overflow: hidden;
 }
 
+.project-img-container-top-img {
+  align-items: flex-start;
+}
+
+.project-img-container-bottom-img {
+  align-items: flex-end;
+}
+
 @media (max-width: 767px) {
   .project-container {
     flex-direction: column;
