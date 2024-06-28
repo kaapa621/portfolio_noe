@@ -1,9 +1,10 @@
 .project-container-whole {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-
   margin-bottom: 115px;
+  transition: all ease-in-out 0.7s;
 }
 
 .project-topics {
@@ -31,7 +32,10 @@
   .project-titles {
     position: absolute;
     left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 5;
+    transition: all ease-in-out 0.7s;
     h2 {
       font-size: 30px;
     }
@@ -44,6 +48,7 @@
     position: absolute;
     max-width: 250px;
     right: -200px;
+    transition: all ease-in-out 0.7s;
   }
 }
 
@@ -53,6 +58,11 @@
   align-items: center;
   max-height: 200px;
   overflow: hidden;
+  transition: all ease-in-out 0.7s;
+}
+
+.project-img {
+  transition: max-height ease-in-out 0.7s;
 }
 
 .project-img-container-top-img {
@@ -64,7 +74,14 @@
 }
 
 .extend {
-  display: none;
+  display: flex;
+  height: 0px;
+  position: relative;
+  bottom: 100px;
+  z-index: -1;
+  overflow: hidden;
+  justify-content: space-around;
+  transition: all ease-in-out 0.7s;
 }
 
 @media (max-width: 767px) {

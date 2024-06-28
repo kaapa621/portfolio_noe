@@ -10,28 +10,6 @@ function toggleMenu() {
   burger.classList.toggle("is-open");
 }
 
-// var wholeProjectContainer = document.querySelector(".project-container-whole");
-// var projectTopics = document.querySelector(".project-topics");
-// var projectContainer = document.querySelector(".project-container");
-// var projectTitles = document.querySelector(".project-titles");
-// var projectImgContainer = document.querySelector(".project-img-container");
-// var projectText = document.querySelector(".project-text");
-// var extend = document.querySelector(".extend");
-
-// wholeProjectContainer.addEventListener("click", toggleProjectOpen);
-
-// function toggleProjectOpen() {
-//   console.log("toggel open classes");
-//   wholeProjectContainer.classList.toggle("project-container-whole-open");
-//   projectTopics.classList.toggle("project-topics-open");
-//   projectContainer.classList.toggle("project-container-open");
-//   projectTitles.classList.toggle("project-titles-open");
-//   projectImgContainer.classList.toggle("project-img-container-open");
-//   projectText.classList.toggle("project-text-open");
-//   extend.classList.toggle("extend-open");
-//   console.log("end of toggle");
-// }
-
 var wholeProjectContainers = document.querySelectorAll(
   ".project-container-whole"
 );
@@ -49,6 +27,7 @@ function toggleProjectOpen(event) {
   var projectImgContainer = currentContainer.querySelector(
     ".project-img-container"
   );
+  var projectImg = currentContainer.querySelector(".project-img");
   var projectText = currentContainer.querySelector(".project-text");
   var extend = currentContainer.querySelector(".extend");
 
@@ -57,6 +36,7 @@ function toggleProjectOpen(event) {
   projectContainer.classList.toggle("project-container-open");
   projectTitles.classList.toggle("project-titles-open");
   projectImgContainer.classList.toggle("project-img-container-open");
+  projectImg.classList.toggle("project-img-open");
   projectText.classList.toggle("project-text-open");
   extend.classList.toggle("extend-open");
   console.log("end of toggle");
