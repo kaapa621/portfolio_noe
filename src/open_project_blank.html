@@ -16,12 +16,15 @@
               <div class="hero-main-container">
                 <div class="hero-container">
                   <div class="hero-topic-titles">
-                    <h1 class="hero-topic-title">Paintings</h1>
+                    <h1 class="hero-topic-title">Topic</h1>
                   </div>
                   <img class="hero-img" src="img/placeholder.jpg" alt="" />
                   <div class="hero-topics">
-                    <p class="hero-project">Toiles</p>
-                    <p class="hero-project">Murs</p>
+                    <p class="hero-project">travail</p>
+                    <p class="hero-project">Projet</p>
+                    <p class="hero-project">Collaboration</p>
+                    <p class="hero-project">Devoirs</p>
+                    <p class="hero-project">Rendu</p>
                   </div>
                 </div>
               </div>
@@ -33,19 +36,36 @@
         <div class="container">
           <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
-              <div class="project-container-whole">
-                <div class="project-topics">
-                  <i class="fa-solid fa-palette"></i>
+              <div class="project-container-whole project-container-whole-open">
+                <div class="project-topics project-topics-open">
+                  <i class="fa-solid fa-cube"></i>
+                  <i class="fa-solid fa-camera"></i>
                 </div>
-                <div class="project-container">
-                  <div class="project-titles">
-                    <h2>Toiles</h2>
+                <div class="project-container project-container-open">
+                  <div class="project-titles project-titles-open">
+                    <h2>Titre du projet</h2>
                   </div>
-                  <div class="project-img-container">
-                    <img class="project-img" src="img/placeholder.jpg" alt="" />
+                  <div class="project-img-container project-img-container-open">
+                    <img
+                      class="project-img project-img-open"
+                      src="img/150cc-miniature.png"
+                      alt=""
+                    />
                   </div>
-                  <div class="project-text">
-                    <p>un receuil de plusieurs de mes peintures sur toile</p>
+                  <div class="project-text project-text-open">
+                    <p>
+                      un texte qui explique brievement le projet, puis un autre
+                      texte qui explique brievement le projet, puis un texte qui
+                      explique brievement le projet
+                    </p>
+                  </div>
+                </div>
+                <div class="extend extend-open">
+                  <div class="extend-project-image">
+                    <img src="img/placeholder.jpg" alt="" />
+                  </div>
+                  <div class="extend-project-text">
+                    <p>un texte plus long qui explique le projet en question</p>
                   </div>
                 </div>
               </div>
@@ -57,13 +77,13 @@
                 </div>
                 <div class="project-container">
                   <div class="project-titles">
-                    <h2>Murs</h2>
+                    <h2>Titre du projet</h2>
                   </div>
                   <div class="project-img-container">
                     <img class="project-img" src="img/placeholder.jpg" alt="" />
                   </div>
                   <div class="project-text">
-                    <p>un receuil de quelques peintures murales</p>
+                    <p>un texte qui explique brievement le projet</p>
                   </div>
                 </div>
               </div>
@@ -76,5 +96,6 @@
       <include src="html_components/footer.html"></include>
     </footer>
     <inculude src="html_components/script.html"></inculude>
+    <script src="js/main.js" type="module"></script>
   </body>
 </html>

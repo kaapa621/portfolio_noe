@@ -63,6 +63,10 @@
   align-items: flex-end;
 }
 
+.extend {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .project-container {
     flex-direction: column;
