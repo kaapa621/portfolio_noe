@@ -84,6 +84,13 @@
   align-items: flex-end;
 }
 
+.project-container-whole.is-active {
+  background: red;
+  .project-img-container {
+    max-height: 320px;
+  }
+}
+
 .extend::before {
   content: "";
   position: absolute;
@@ -98,6 +105,7 @@
   z-index: -10;
 }
 .extend {
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
