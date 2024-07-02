@@ -27,6 +27,7 @@ function toggleProjectOpen(event) {
   var projectImgContainer = currentContainer.querySelector(
     ".project-img-container"
   );
+  var imgCache = currentContainer.querySelector(".cache-img");
   var projectImg = currentContainer.querySelector(".project-img");
   var projectText = currentContainer.querySelector(".project-text");
   var extend = currentContainer.querySelector(".extend");
@@ -35,9 +36,11 @@ function toggleProjectOpen(event) {
   projectTopics.classList.toggle("project-topics-open");
   projectContainer.classList.toggle("project-container-open");
   projectTitles.classList.toggle("project-titles-open");
+  imgCache.classList.toggle("cache-img-open");
   projectImgContainer.classList.toggle("project-img-container-open");
   projectImg.classList.toggle("project-img-open");
   projectText.classList.toggle("project-text-open");
+  console.log("before extend");
   extend.classList.toggle("extend-open");
   console.log("end of toggle");
 }
