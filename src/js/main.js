@@ -39,7 +39,8 @@ wholeProjectContainers.forEach(function (container) {
     backgroundColor: "red",
   });
   timelineProjectIsActive.to(container.querySelector(".project-text"), {
-    backgroundColor: "red",
+    left: "200px",
+    duration: "20",
   });
 
   container.addEventListener("click", (event) => {
