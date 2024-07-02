@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 var burger = document.querySelector("[data-burger]");
 var burgerWindow = document.querySelector("[data-burgerWindow]");
 var burgerIcon = document.querySelector("[data-burgerIcon]");
