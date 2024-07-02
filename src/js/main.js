@@ -16,8 +16,19 @@ var wholeProjectContainers = document.querySelectorAll(
   ".project-container-whole"
 );
 
+// var timelineProjectOpen = gsap.timeline({
+//   onComplete: () => {
+//     console.log("finished timeline");
+//   },
+// });
+
 wholeProjectContainers.forEach(function (container) {
   container.addEventListener("click", toggleProjectOpen);
+  container.addEventListener("click", () => {
+    timelineProjectOpen.reversed()
+      ? timelineProjectOpen.play()
+      : timelineProjectOpen.reverse();
+  });
 });
 
 function toggleProjectOpen(event) {
@@ -34,6 +45,10 @@ function toggleProjectOpen(event) {
   var projectText = currentContainer.querySelector(".project-text");
   var extend = currentContainer.querySelector(".extend");
 
+  // timelineProjectOpen.to(".project-titles", { backgroundColor: "red" });
+  // timelineProjectOpen.to(".cache-img", { backgroundColor: "red" });
+  // timelineProjectOpen.to()
+
   currentContainer.classList.toggle("project-container-whole-open");
   projectTopics.classList.toggle("project-topics-open");
   projectContainer.classList.toggle("project-container-open");
@@ -46,3 +61,5 @@ function toggleProjectOpen(event) {
   extend.classList.toggle("extend-open");
   console.log("end of toggle");
 }
+
+gsap.to(".project-img-container", { maxHeight: "320px" });

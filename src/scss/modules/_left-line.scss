@@ -4,6 +4,16 @@
   height: 100vh;
   background: $light;
   width: 3px;
+  z-index: -5;
+}
+
+.left-line::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  background-color: $dark;
+  width: 48px;
 }
 
 @media (max-width: 767px) {
