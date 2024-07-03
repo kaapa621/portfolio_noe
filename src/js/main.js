@@ -43,14 +43,17 @@ wholeProjectContainers.forEach(function (container) {
   timelineProjectIsActive.to(container.querySelector(".project-titles"), {
     top: "0",
   });
-
   timelineProjectIsActive.to(
-    container.querySelector(".project-img"),
+    container.querySelector(".project-container"),
     {
-      height: "500px",
+      "--width": "150%",
     },
     "<"
   );
+
+  timelineProjectIsActive.to(container.querySelector(".project-img"), {
+    height: "500px",
+  });
 
   timelineProjectIsActive.to(
     container.querySelector(".project-img-container"),
@@ -60,6 +63,23 @@ wholeProjectContainers.forEach(function (container) {
     },
     "<"
   );
+  timelineProjectIsActive.to(
+    container.querySelector(".project-text"),
+    {
+      top: "60px",
+      maxHeight: "500px",
+    },
+    "<"
+  );
+
+  timelineProjectIsActive.to(container.querySelector(".extend"), {
+    "--extendWidth": "120vw",
+  });
+
+  timelineProjectIsActive.to(container.querySelectorAll(".extend-child"), {
+    opacity: "1",
+    stagger: 0.5,
+  });
 
   // ------------------------------------- event listeer --
 
