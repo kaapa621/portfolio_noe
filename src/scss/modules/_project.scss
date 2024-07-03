@@ -28,6 +28,7 @@
   align-items: center;
   position: relative;
   width: 100%;
+  max-width: 60vw;
   .project-titles {
     position: absolute;
     left: -80px;
@@ -41,8 +42,8 @@
   }
   .project-text {
     position: absolute;
-    max-width: 250px;
-    right: -200px;
+    max-width: 40%;
+    right: -35%;
     z-index: 5;
   }
 }
@@ -124,16 +125,6 @@
 .extend-project-text {
   max-width: 45%;
   pointer-events: none;
-}
-.project-container {
-  .project-titles-open {
-    top: 0px;
-    transform: translateY(0%);
-  }
-  .project-text-open {
-    max-width: 150px;
-    right: -175px;
-  }
 }
 
 @media (max-width: 767px) {
