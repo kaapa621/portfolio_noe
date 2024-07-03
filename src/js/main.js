@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 // -------------------------------------------------------------- DOM load checkup --
 
 document.addEventListener("DOMContentLoaded", function (test) {
-  console.log("check");
+  console.log("DOMcheck");
 });
 
 // -------------------------------------------------------------- nav --
@@ -38,22 +38,53 @@ wholeProjectContainers.forEach(function (container) {
     },
   });
 
+  // ------------------------------------- hover --
+  let cacheImg = container.querySelector(".cache-img");
+
+  var hoverAnimation = gsap.to(".cache-img", {
+    paused: true,
+    opacity: 0,
+  });
+
+  cacheImg.addEventListener("mouseenter", () => hoverAnimation.play());
+  cacheImg.addEventListener("mouseleave", () => hoverAnimation.reverse());
+
   // ------------------------------------- animation --
 
-  timelineProjectIsActive.to(container.querySelector(".project-titles"), {
-    top: "0",
-  });
   timelineProjectIsActive.to(
-    container.querySelector(".project-container"),
+    container.querySelector(".cache-img"),
     {
-      "--width": "150%",
+      opacity: 0,
     },
     "<"
   );
 
-  timelineProjectIsActive.to(container.querySelector(".project-img"), {
-    height: "500px",
-  });
+  timelineProjectIsActive.to(
+    container.querySelector(".project-titles"),
+    {
+      top: "0",
+      duration: 0.5,
+    },
+    "<"
+  );
+
+  timelineProjectIsActive.to(
+    container.querySelector(".project-container"),
+    {
+      "--width": "150%",
+      marginBottom: "80px",
+      duration: 0.5,
+    },
+    "<"
+  );
+
+  timelineProjectIsActive.to(
+    container.querySelector(".project-img"),
+    {
+      height: "500px",
+    },
+    "<"
+  );
 
   timelineProjectIsActive.to(
     container.querySelector(".project-img-container"),
@@ -63,6 +94,7 @@ wholeProjectContainers.forEach(function (container) {
     },
     "<"
   );
+
   timelineProjectIsActive.to(
     container.querySelector(".project-text"),
     {
@@ -72,13 +104,29 @@ wholeProjectContainers.forEach(function (container) {
     "<"
   );
 
-  timelineProjectIsActive.to(container.querySelector(".extend"), {
-    "--extendWidth": "120vw",
-  });
+  timelineProjectIsActive.to(
+    container.querySelector(".extend"),
+    {
+      marginTop: "80px",
+      marginBottom: "80px",
+      height: "auto",
+      ease: "power2.inOut",
+    },
+    "<"
+  );
+
+  timelineProjectIsActive.to(
+    container.querySelector(".extend"),
+    {
+      delay: 0.3,
+      "--extendWidth": "120vw",
+    },
+    "<"
+  );
 
   timelineProjectIsActive.to(container.querySelectorAll(".extend-child"), {
     opacity: "1",
-    stagger: 0.5,
+    stagger: 0.3,
   });
 
   // ------------------------------------- event listeer --
