@@ -34,31 +34,33 @@ wholeProjectContainers.forEach(function (container) {
       console.log("timeline complete");
     },
     onReverseComplete: () => {
+      gsap.to(container.querySelector(".cache-img"), {
+        opacity: 1,
+      });
       console.log("reverse timeline complete");
     },
   });
 
   // ------------------------------------- hover --
-  let cacheImg = container.querySelector(".cache-img");
 
-  var hoverAnimation = gsap.to(".cache-img", {
+  var imgContainer = container.querySelector(".project-container");
+
+  var hoverAnimation = gsap.to(container.querySelector(".cache-img"), {
     paused: true,
     opacity: 0,
+    duration: 0.3,
   });
 
-  cacheImg.addEventListener("mouseenter", () => hoverAnimation.play());
-  cacheImg.addEventListener("mouseleave", () => hoverAnimation.reverse());
+  imgContainer.addEventListener("mouseenter", () => hoverAnimation.play());
+  imgContainer.addEventListener("mouseleave", () => {
+    if (container.classList.contains("is-active")) {
+      hoverAnimation.pause();
+    } else {
+      hoverAnimation.reverse();
+    }
+  });
 
   // ------------------------------------- animation --
-
-  timelineProjectIsActive.to(
-    container.querySelector(".cache-img"),
-    {
-      opacity: 0,
-    },
-    "<"
-  );
-
   timelineProjectIsActive.to(
     container.querySelector(".project-titles"),
     {
@@ -88,6 +90,15 @@ wholeProjectContainers.forEach(function (container) {
 
   timelineProjectIsActive.to(
     container.querySelector(".project-img-container"),
+    {
+      top: "60px",
+      maxHeight: "500px",
+    },
+    "<"
+  );
+
+  timelineProjectIsActive.to(
+    container.querySelector(".cache-img"),
     {
       top: "60px",
       maxHeight: "500px",
