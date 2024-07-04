@@ -70,7 +70,7 @@
   min-width: 50%;
   width: var(--width, 300px);
   background-color: $light;
-  z-index: 10000;
+  z-index: 100;
 }
 
 .cache-img {
@@ -84,10 +84,6 @@
   z-index: 1;
   opacity: 1;
 }
-
-// .cache-img:hover {
-//   opacity: 0;
-// }
 
 .cache-img .is-activ {
   opacity: 0;
@@ -113,6 +109,22 @@
 
 .project-img-container-bottom-img {
   align-items: flex-end;
+}
+
+.project-media-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  opacity: 0;
+  max-height: 0px;
+  overflow: hidden;
+  z-index: 600;
+  .project-media-button-child {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
 }
 
 .extend::before {
