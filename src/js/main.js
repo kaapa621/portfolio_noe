@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   wholeProjectContainers.forEach((container) => {
+    // Track if the mouse is over the container
+    let isMouseOver = false;
+
     // ------------------------------------- timelines --
     var timelineProjectIsActive = gsap.timeline({
       paused: true,
@@ -30,11 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
       duration: 0.3,
     });
 
-    imgContainer.addEventListener("mouseenter", () => hoverAnimation.play());
+    imgContainer.addEventListener("mouseenter", () => {
+      hoverAnimation.play();
+      isMouseOver = true;
+    });
     imgContainer.addEventListener("mouseleave", () => {
       if (!container.classList.contains("is-active")) {
         hoverAnimation.reverse();
       }
+      isMouseOver = false;
     });
 
     // ------------------------------------- video player --
@@ -47,15 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var youtubeIframe = container.querySelector(".youtube-iframe");
 
     // Check if each element exists before proceeding
-    if (mediaOpenBack) {
-      mediaOpenBack.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent click event from propagating to parent elements
-      });
-    }
-
     if (projectMediaButton) {
       projectMediaButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent click event from propagating to parent elements
+        event.stopPropagation();
         timelinePlayer.play();
       });
     }
@@ -68,12 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       });
 
-      timelinePlayer.to(".media-player-back", {
+      timelinePlayer.to(mediaOpenBack, {
         height: "100vh",
         duration: 0,
       });
 
-      timelinePlayer.to(".media-player-back", {
+      timelinePlayer.to(mediaOpenBack, {
         opacity: 1,
       });
 
@@ -95,6 +96,20 @@ document.addEventListener("DOMContentLoaded", function () {
           args: [],
         };
         youtubeIframe.contentWindow.postMessage(JSON.stringify(message), "*");
+      });
+
+      // Add keydown event listener for Esc key for video player close
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.stopPropagation(); // Prevent event from propagating
+          timelinePlayer.reverse();
+          var message = {
+            event: "command",
+            func: "pauseVideo",
+            args: [],
+          };
+          youtubeIframe.contentWindow.postMessage(JSON.stringify(message), "*");
+        }
       });
     }
 
@@ -162,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     timelineProjectIsActive.to(
-      document.querySelector(".project-media-button"),
+      container.querySelector(".project-media-button"),
       { maxHeight: "500px", opacity: 1 }
     );
 
@@ -174,6 +189,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (currentContainer.classList.contains("is-active")) {
         timelineProjectIsActive.play();
       } else {
+        timelineProjectIsActive.reverse();
+      }
+    });
+
+    // Add keydown event listener for Esc key to toggle project close
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        container.classList.contains("is-active") &&
+        isMouseOver
+      ) {
+        event.stopPropagation(); // Prevent event from propagating
+        container.classList.remove("is-active");
         timelineProjectIsActive.reverse();
       }
     });
