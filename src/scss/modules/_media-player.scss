@@ -1,0 +1,73 @@
+.media-player-back {
+  width: 100vw;
+  height: 00vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(10px) saturate(0);
+  z-index: 1000;
+  background-color: $dark-transparent;
+  opacity: 0;
+}
+
+.extend-player {
+  background-color: $light;
+  overflow: hidden;
+  width: fit-content;
+  padding: 60px;
+  height: 0%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  img {
+    margin: auto;
+    max-height: 80vh;
+  }
+}
+
+.extend-player-close-button {
+  position: absolute;
+  right: 20;
+  top: 20;
+  color: $dark;
+  font-size: 30px;
+}
+
+.video-player {
+  background-color: $light;
+  width: 85%;
+  height: 0%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+
+  iframe {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+.video-player-close-button {
+  position: absolute;
+  right: 20;
+  top: 20;
+  color: $dark;
+  font-size: 30px;
+}

@@ -1,3 +1,7 @@
+:root {
+  --opacity: 0;
+}
+
 .project-section {
   .container {
     .row {
@@ -150,8 +154,23 @@
   z-index: -10;
 }
 
+.extend:after {
+  content: ("");
+  pointer-events: none;
+  opacity: var(--opacity);
+  position: fixed;
+  height: 100vh;
+  width: 150vw;
+  bottom: 0;
+  left: -600px;
+  background-color: $dark-transparent;
+  backdrop-filter: blur(5px) saturate(0);
+  z-index: 11000;
+}
+
 .extend {
   position: absolute;
+  pointer-events: none;
   height: 0vh;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -163,12 +182,17 @@
   justify-content: space-between;
   .extend-child {
     opacity: 0;
+    margin: 10px 0;
   }
 }
 
 .extend-project-image {
+  position: relative;
+  max-height: 300px;
+  overflow: hidden;
   max-width: 45%;
   pointer-events: none;
+  z-index: 5;
 }
 
 .extend-project-text {

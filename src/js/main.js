@@ -1,4 +1,5 @@
 import { gsap } from "gsap";
+import { CalculationOperation } from "sass";
 
 document.addEventListener("DOMContentLoaded", function () {
   console.log("DOMcheck");
@@ -12,6 +13,31 @@ document.addEventListener("DOMContentLoaded", function () {
     let isMouseOver = false;
 
     // ------------------------------------- timelines --
+    var extendImg = container.querySelector(".extend-project-image");
+    var timelineExtendIsActive = gsap.timeline({
+      paused: true,
+      onComplete: () => {
+        console.log("timelineExtend is complete");
+      },
+    });
+
+    if (extendImg) {
+      var timelineExtendIsActive = gsap.timeline({
+        paused: true,
+      });
+
+      extendImg.addEventListener("click", (event) => {
+        event.stopPropagation();
+        console.log("hear the click");
+        if (extendImg.classList.contains("extend-is-active")) {
+          timelineExtendIsActive.reverse();
+        } else {
+          timelineExtendIsActive.play();
+        }
+        extendImg.classList.toggle("extend-is-active");
+      });
+    }
+
     var timelineProjectIsActive = gsap.timeline({
       paused: true,
       onComplete: () => {
@@ -50,10 +76,55 @@ document.addEventListener("DOMContentLoaded", function () {
     var playerCloseButton = container.querySelector(
       ".video-player-close-button"
     );
+    var playerExtendCloseButton = container.querySelector(
+      ".extend-player-close-button"
+    );
     var videoPlayer = container.querySelector(".video-player");
+    var extendPlayer = container.querySelector(".extend-player");
     var youtubeIframe = container.querySelector(".youtube-iframe");
 
     // Check if each element exists before proceeding
+    if (extendImg) {
+      extendImg.addEventListener("click", (event) => {
+        event.stopPropagation();
+        timelinePlayerExtend.play();
+      });
+    }
+
+    if (playerCloseButton) {
+      var timelinePlayerExtend = gsap.timeline({
+        paused: true,
+        onComplete: () => {
+          console.log("timelineExtend complete");
+        },
+      });
+
+      timelinePlayerExtend.to(mediaOpenBack, {
+        height: "100vh",
+        duration: 0,
+      });
+
+      timelinePlayerExtend.to(mediaOpenBack, {
+        opacity: 1,
+      });
+
+      timelinePlayerExtend.to(
+        extendPlayer,
+        {
+          height: "85%",
+          opacity: 1,
+        },
+        "<"
+      );
+    }
+
+    if (playerExtendCloseButton) {
+      playerExtendCloseButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent click event from propagating to parent elements
+        timelinePlayerExtend.reverse();
+      });
+    }
+
     if (projectMediaButton) {
       projectMediaButton.addEventListener("click", (event) => {
         event.stopPropagation();
@@ -114,14 +185,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ------------------------------------- animation --
+
     timelineProjectIsActive.to(
-      document.querySelector(".project-titles"),
+      container.querySelector(".project-titles"),
       { top: "0", duration: 0.5 },
       "<"
     );
 
     timelineProjectIsActive.to(
-      document.querySelector(".project-close-button"),
+      container.querySelector(".project-close-button"),
       { maxHeight: "30px", opacity: 1, duration: 0.5 },
       "<"
     );
@@ -177,6 +249,12 @@ document.addEventListener("DOMContentLoaded", function () {
       "<"
     );
 
+    timelineProjectIsActive.to(
+      container.querySelector(".extend-project-image"),
+      { pointerEvents: "auto" },
+      "<"
+    );
+
     timelineProjectIsActive.to(container.querySelectorAll(".extend-child"), {
       opacity: "1",
       stagger: 0.3,
@@ -188,14 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // ------------------------------------- event listener --
-    // var projectCloseButton = container.querySelector(".project-close-button");
-
-    // if (projectCloseButton) {
-    //   projectCloseButton.addEventListener("click", (event) => {
-    //     event.stopPropagation();
-    //     timelineProjectIsActive.reverse();
-    //   });
-    // }
 
     container.addEventListener("click", (event) => {
       var currentContainer = event.currentTarget;
