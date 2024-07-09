@@ -121,9 +121,15 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     timelineProjectIsActive.to(
+      document.querySelector(".project-close-button"),
+      { maxHeight: "30px", opacity: 1, duration: 0.5 },
+      "<"
+    );
+
+    timelineProjectIsActive.to(
       container.querySelector(".project-container"),
       {
-        "--width": "150%",
+        "--width": "130%",
         marginBottom: "80px",
         duration: 0.5,
       },
@@ -138,19 +144,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     timelineProjectIsActive.to(
       container.querySelector(".project-img-container"),
-      { top: "60px", maxHeight: "500px" },
+      { top: "90px", maxHeight: "500px" },
       "<"
     );
 
     timelineProjectIsActive.to(
       container.querySelector(".cache-img"),
-      { top: "60px", maxHeight: "500px" },
+      { top: "90px", maxHeight: "500px" },
       "<"
     );
 
     timelineProjectIsActive.to(
       container.querySelector(".project-text"),
-      { top: "60px", maxHeight: "500px" },
+      { top: "90px", maxHeight: "500px", maxWidth: "30%", right: "-30%" },
       "<"
     );
 
@@ -182,6 +188,15 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     // ------------------------------------- event listener --
+    // var projectCloseButton = container.querySelector(".project-close-button");
+
+    // if (projectCloseButton) {
+    //   projectCloseButton.addEventListener("click", (event) => {
+    //     event.stopPropagation();
+    //     timelineProjectIsActive.reverse();
+    //   });
+    // }
+
     container.addEventListener("click", (event) => {
       var currentContainer = event.currentTarget;
       currentContainer.classList.toggle("is-active");

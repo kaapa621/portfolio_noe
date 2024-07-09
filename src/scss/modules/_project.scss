@@ -59,6 +59,15 @@
   }
 }
 
+.project-close-button {
+  position: absolute;
+  top: -90px;
+  font-size: 30px;
+  opacity: 0;
+  max-height: 30px;
+  overflow: hidden;
+}
+
 .project-container:before {
   position: absolute;
   top: -50px;
@@ -71,7 +80,7 @@
   min-width: 50%;
   width: var(--width, 300px);
   background-color: $light;
-  z-index: 100;
+  z-index: 9;
 }
 
 .cache-img {
