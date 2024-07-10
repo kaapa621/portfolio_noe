@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       timelinePlayerExtend.to(mediaOpenBack, {
         opacity: 1,
+        pointerEvents: "all",
       });
 
       timelinePlayerExtend.to(
@@ -116,7 +117,18 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         "<"
       );
+
+      timelinePlayerExtend.eventCallback("onReverseComplete", () => {
+        mediaOpenBack.style.pointerEvents = "none";
+      });
     }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        event.stopPropagation();
+        timelinePlayerExtend.reverse();
+      }
+    });
 
     if (playerExtendCloseButton) {
       playerExtendCloseButton.addEventListener("click", (event) => {
@@ -146,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       timelinePlayer.to(mediaOpenBack, {
+        pointerEvents: "all",
         opacity: 1,
       });
 

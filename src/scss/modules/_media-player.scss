@@ -8,6 +8,7 @@
   z-index: 1000;
   background-color: $dark-transparent;
   opacity: 0;
+  pointer-events: none;
 }
 
 .extend-player {
