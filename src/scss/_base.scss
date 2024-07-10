@@ -61,3 +61,14 @@ a {
 .invisible {
   display: none;
 }
+
+/* ====================================
+// font
+// ==================================== */
+
+@font-face {
+  font-family: "outward";
+  font-weight: 600;
+  font-style: noraml;
+  src: url("../font/outward-block-webfont.woff2") format("woff2");
+}

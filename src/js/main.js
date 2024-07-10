@@ -229,7 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     timelineProjectIsActive.to(
       container.querySelector(".project-img-container"),
-      { top: "90px", maxHeight: "500px" },
+      { top: "90px", maxHeight: "500px", overflow: "visible" },
       "<"
     );
 
