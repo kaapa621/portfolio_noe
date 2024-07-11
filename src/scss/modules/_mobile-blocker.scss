@@ -1,0 +1,42 @@
+.mobile-blocker {
+  position: fixed;
+  background-color: $dark-transparent;
+  backdrop-filter: blur(20px) saturate(0) brightness(0.1);
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 99999;
+  display: none;
+}
+
+.mobile-blocker-text {
+  margin: 20px;
+}
+
+.mobile-blocker-titles {
+  position: absolute;
+  top: 30px;
+  margin: 20px;
+}
+
+.mobile-blocker-title {
+  font-family: "outward";
+  font-size: 110px;
+}
+
+.mobile-blocker-subtitle {
+  left: -102;
+  position: relative;
+  top: -60px;
+  font-size: 20px;
+  margin: 20px;
+}
+
+@media (max-width: 767px) {
+  .mobile-blocker {
+    display: flex;
+  }
+}
