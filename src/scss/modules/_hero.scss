@@ -48,13 +48,35 @@
   overflow: hidden;
 }
 
+.hero-img-container:after {
+  content: ("");
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 95%;
+  height: 15%;
+  border-bottom: solid 1px $light;
+  border-left: solid 1px $light;
+}
+
+.hero-img-container-index:before {
+  content: ("");
+  position: absolute;
+  width: 1px;
+  background-color: $light;
+  top: 25%;
+  height: 50px;
+  left: 0px;
+}
+
 .hero-img {
   width: 100%;
+  opacity: 0;
 }
 
 .hero-img-topic {
   filter: saturate(0) brightness(0.5);
-  min-width: 1;
+  width: 100vw;
 }
 
 @media (max-width: 767px) {

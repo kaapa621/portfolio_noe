@@ -35,6 +35,10 @@ body {
   // height: 100%;
 
   background: $dark;
+  background-image: url(../img/background-texture-20.png);
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-blend-mode: lighten;
   color: $light;
 
   font-family: Arial, Helvetica, sans-serif;
