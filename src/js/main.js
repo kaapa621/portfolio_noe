@@ -12,6 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Track if the mouse is over the container
     let isMouseOver = false;
 
+    const projectImg = container.querySelector(".project-img");
+
+    projectImg.style.maxHeight = "auto";
+    const initialHeight = projectImg.scrollHeight;
+    projectImg.style.maxHeight = "1000px";
+
     // ------------------------------------- timelines --
     var extendImg = container.querySelector(".extend-project-image");
     var timelineExtendIsActive = gsap.timeline({
@@ -222,14 +228,8 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
     timelineProjectIsActive.to(
-      container.querySelector(".project-img"),
-      { height: "500px" },
-      "<"
-    );
-
-    timelineProjectIsActive.to(
       container.querySelector(".project-img-container"),
-      { top: "90px", maxHeight: "500px", overflow: "visible" },
+      { top: "90px", maxHeight: "500px" },
       "<"
     );
 
@@ -268,10 +268,32 @@ document.addEventListener("DOMContentLoaded", function () {
       "<"
     );
 
+    timelineProjectIsActive
+      .to(
+        container.querySelector(".project-img"),
+        {
+          maxHeight: initialHeight + "px", // Animate from 0px to auto height
+        },
+        "<"
+      )
+      .to(
+        projectImg,
+        {
+          maxHeight: "500px", // Animate to the final target height
+        },
+        "<"
+      );
+
     timelineProjectIsActive.to(container.querySelectorAll(".extend-child"), {
       opacity: "1",
       stagger: 0.3,
     });
+
+    timelineProjectIsActive.to(
+      container.querySelector(".project-img-container"),
+      { overflow: "visible", duration: 0.05 },
+      "<"
+    );
 
     timelineProjectIsActive.to(
       container.querySelector(".project-media-button"),
@@ -285,9 +307,9 @@ document.addEventListener("DOMContentLoaded", function () {
       currentContainer.classList.toggle("is-active");
 
       if (currentContainer.classList.contains("is-active")) {
-        timelineProjectIsActive.play();
+        timelineProjectIsActive.timeScale(1).play();
       } else {
-        timelineProjectIsActive.reverse();
+        timelineProjectIsActive.timeScale(1).reverse();
       }
     });
 
