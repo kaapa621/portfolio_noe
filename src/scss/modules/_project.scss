@@ -31,9 +31,13 @@
   i {
     color: $dark;
     background: $light;
-    padding: 6px;
+    padding: 7px;
     border-radius: 50px;
     font-size: 18px;
+  }
+
+  .fa-arrow-pointer {
+    padding-left: 10px;
   }
 }
 

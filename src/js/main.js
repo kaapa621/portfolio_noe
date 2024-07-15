@@ -188,6 +188,17 @@ document.addEventListener("DOMContentLoaded", function () {
         youtubeIframe.contentWindow.postMessage(JSON.stringify(message), "*");
       });
 
+      mediaOpenBack.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent click event from propagating to parent elements
+        timelinePlayer.reverse();
+        var message = {
+          event: "command",
+          func: "pauseVideo",
+          args: [],
+        };
+        youtubeIframe.contentWindow.postMessage(JSON.stringify(message), "*");
+      });
+
       // Add keydown event listener for Esc key for video player close
       document.addEventListener("keydown", (event) => {
         if (event.key === "Escape") {
